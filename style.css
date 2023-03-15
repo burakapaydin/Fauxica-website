@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;500;700;900&display=swap");
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: Poppins, sans-serif;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav {
+  margin: 4em;
+}
+nav ul {
+  display: flex;
+  gap: 4em;
+  text-transform: uppercase;
+}
+
+nav ul a{
+  color: black;
+  position: relative;
+  font-size: 1.6rem;
+}
+nav ul li a.active:before{
+  position: absolute;
+  content: "";
+  width: 35%;
+  height: 1px;
+  border-bottom: 2px solid black;
+  bottom: -4px;
+}
+nav ul li a:before{
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  border-bottom: 2px solid rgb(172, 172, 172);
+  bottom: -4px;
+  transition: .2s ease;
+}
+/* hero section */
+
+main{
+  display: flex;
+  gap: 13rem;
+  margin-top: 11rem;
+  margin-bottom: 14rem;
+}
+
+.left-col{
+  width: 50%;
+  max-width: 50rem;
+}
+
+.right-col{
+  flex-grow: 1;
+}
+/* left col */
+h1{
+  font-family: Playfair Display,sans-serif;
+  font-size: 5.2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  
+}
+
+.subhead{
+  font-size: 1.8rem;
+  line-height: 30px;
+  margin-bottom: 3.5rem;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+  gap: 3.8rem;
+  margin-bottom: 5em;
+}
+.button-1{
+  font-weight: bold;
+  padding: 1em 2.5em;
+  border: none;
+  border-radius: 1.4em;
+  background-color: #F2F0DF;
+  color: black;
+}
+.button-1 a{
+  color: black;
+  font-size: 1.8rem;
+}
+.button-2{
+  display: inline-flex;
+  align-items: center;
+  color: black;
+  gap: 1rem;
+  display: block;
+}
+.button-2 span{
+  font-size: 1.6rem;
+}
+.button-2 svg{
+  width: 18px;
+  transition: .3s ease;
+}
+
+.news{
+  display: flex;
+  width: 50em;
+  height: 15em;
+  border: 1px solid black;
+  border-radius: 19px;
+  gap: 5rem;
+  padding: 4rem;
+  position: relative;
+  box-shadow: 20px 10px 30px rgba(0,0,0,0.1);
+}
+.news::before{
+  position: absolute;
+  content: "";
+  background: url(/images/confetti.svg) no-repeat;
+  width: 200px;
+  height: 200px;
+  top: -10px;
+  left: -30px;
+  z-index: 2;
+}
+.employees{
+  font-size: 3.3rem;
+  font-weight: 200;
+  line-height: 100%;
+}
+.details{
+  font-size: 1.4rem;
+}
+
+/* right col */
+
+.right-col{
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  grid-template-areas: 
+  "left ."
+  "left .";
+  gap: 3em;
+}
+.card{
+  border-radius: 2em;
+  padding: 1.6em;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  transition: background-size .8s ease;
+}
+.card1{
+  grid-area: left;
+  background: url(/images/clothing1.jpg) no-repeat;
+  background-size: 150%;
+  background-position: center;
+  position: relative;
+}
+.card1::before{
+  position: absolute;
+  content: "";
+  background: url(/images/tag.svg) no-repeat;
+  width: 100%;
+  height: 100%;
+  top: -30px;
+  left: -100px;
+  pointer-events: none;
+}
+.card2{
+  background: url(/images/clothing2.jpg) no-repeat;
+  background-size: 140%;
+  background-position: left;
+}
+.card3{
+  background: url(/images/clothing3.jpg) no-repeat;
+  background-size: 180%;
+  background-position: center;
+}
+.card-details{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  padding: .7em 1.7em;
+  width: 100%;
+  gap: 2rem;
+  justify-content: space-between;
+  transition: transform .8s ease;
+}
+.product-title{
+  font-size: 1.6rem;
+  line-height: 150%;
+  font-weight: bold;
+  color: black;
+}
+.card-details div p{
+  font-size: 1.4rem;
+}
+.card-details p{
+  font-size: 1.7rem;
+}
+
+/* ANIMATIONS */
+nav ul li a:hover:before{
+  width: 35%;
+}
+.button-1:hover{
+opacity: .8;
+}
+.button-2 span:hover{
+  text-decoration: underline;
+}
+.button-2:hover svg{
+  transform: translateX(10px);
+}
+.card1:hover{
+  background-size: 180%;
+}
+.card2:hover{
+  background-size: 160%;
+}
+.card3:hover{
+  background-size: 230%;
+}
+.card:hover .card-details{
+  transform: translateY(-10px);
+}
+
+/* OVERLAY */
+main{
+  animation: overlay 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  transform: scale(.5);
+}
+@keyframes overlay{
+  to{
+    transform: scale(1);
+  }
+}
